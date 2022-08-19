@@ -1,0 +1,8 @@
+github:
+  - .github/**/*
+
+workflow:
+  - .github/workflow/*
+
+article:
+  - ./**/*.md

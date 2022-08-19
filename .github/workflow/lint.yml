@@ -1,0 +1,24 @@
+name: Lint
+
+on:
+  push:
+    paths:
+      - ./**/*.md
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+      - name: Get changed files
+        id: changed-files
+        uses: tj-actions/changed-files@v27
+      - name: Lint articles
+        run: |
+          npx zx scripts/lint.mjs
+        env: 
+          MARKDOWN_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
