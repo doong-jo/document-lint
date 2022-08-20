@@ -1,4 +1,4 @@
-name: Lint
+name: Lint markdown
 
 on:
   push:
@@ -7,17 +7,18 @@ on:
 
 jobs:
   lint:
-    name: Lint
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
       - uses: actions/setup-node@v3
         with:
           node-version-file: '.nvmrc'
       - name: Get changed files
         id: changed-files
         uses: tj-actions/changed-files@v27
-      - name: Lint articles
+      - name: Lint document
         run: |
           npx zx scripts/lint.mjs
         env: 
