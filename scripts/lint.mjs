@@ -1,6 +1,6 @@
 #!/usr/bin/env zx
 
-let changedMarkdownFiles = await $`echo $MARKDOWN_FILES`;
+let changedMarkdownFiles = await $`"$MARKDOWN_FILES"`;
 
 console.log("changedMarkdownFiles", changedMarkdownFiles);
 
