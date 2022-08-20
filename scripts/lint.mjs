@@ -1,6 +1,6 @@
 #!/usr/bin/env zx
 
-const changedMarkdownFiles = (await $`echo $MARKDOWN_FILES`).split(" ");
+let changedMarkdownFiles = await $`echo $MARKDOWN_FILES`;
 
 console.log("changedMarkdownFiles", changedMarkdownFiles);
 
